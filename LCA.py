@@ -115,7 +115,7 @@ if play==True:
     ax = fig.add_subplot()
     anim = FuncAnimation(fig=fig, func=update, frames=len(bcrdf_expanded), interval=100, repeat=False)
     anim.save('Line Chart Animation.mp4')
-    ctypes.windll.user32.MessageBoxW(0, 'The Line Chart animation has been successfully completed and saved!', "Success!", 64)
+    ctypes.windll.user32.MessageBoxW(0, 'The Line Chart animation has been successfully completed and saved as Line Chart Animation.mp4', "Success!", 64)
 
     #Playback/Output
     class Video(object):

@@ -31,37 +31,33 @@ Label(top, text='Please import a data file and fill out the information below').
 Label(top, text='Chart Title: ').grid(row=2)
 Label(top, text='X-Axis Label: ').grid(row=3)
 Label(top, text='Y-Axis Label: ').grid(row=4)
-Label(top, text='Time Unit: ').grid(row=5)
 Label(top, text='Timesteps: ').grid(row=6)
 
 e1=Entry(top)
 e2=Entry(top)
 e3=Entry(top)
 e4=Entry(top)
-e5=Entry(top)
 
 e1.grid(row=2, column=1)
 e2.grid(row=3, column=1)
 e3.grid(row=4, column=1)
-e4.grid(row=5, column=1)
-e5.grid(row=6, column=1)
+e4.grid(row=6, column=1)
 
 play=False
 bcrdf=pd.DataFrame()
 
 def callback(self):
-    global title, xlabel, ylabel, units, timesteps, play
+    global title, xlabel, ylabel, timesteps, play
     if bcrdf.empty:
         ctypes.windll.user32.MessageBoxW(0, 'Please import a data file', "Welcome!", 16)
     else:
         title=e1.get() 
         xlabel=e2.get()
         ylabel=e3.get()
-        units=e4.get()
-        if e5.get()=='':
+        if e4.get()=='':
             timesteps=1
         else:
-            timesteps=int(e5.get())
+            timesteps=int(e4.get())
         top.destroy()
         play=True
 
@@ -115,7 +111,7 @@ if play==True:
     ax = fig.add_subplot()
     anim = FuncAnimation(fig=fig, func=update, frames=len(bcrdf_expanded), interval=100, repeat=False)
     anim.save('Line Chart Animation.mp4')
-    ctypes.windll.user32.MessageBoxW(0, 'The Line Chart animation has been successfully completed and saved as Line Chart Animation.mp4', "Success!", 64)
+    ctypes.windll.user32.MessageBoxW(0, 'The Line Chart animation has been successfully completed and saved!', "Success!", 64)
 
     #Playback/Output
     class Video(object):

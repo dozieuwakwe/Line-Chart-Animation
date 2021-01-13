@@ -21,7 +21,7 @@ def fileimport():
     importlabel.configure(text='File imported!')
     b1.configure(text='Change Data File')
 
-intro='Welcome to the Line Chart Animator! Please make sure your input data is in the form of an Excel file containing a table in which the rows represent each unit of time and the columns represent each category tracked).'
+intro='Welcome to the Line Chart Animator! Please make sure your input data is in the form of an Excel file containing a table in which the rows represent each unit of time and the columns represent each category tracked.'
 ctypes.windll.user32.MessageBoxW(0, intro, "Welcome!", 64)
 
 top = Tk(className=' Line Chart Animator')
